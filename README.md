@@ -46,9 +46,6 @@ Projeto focado em autenticação e estrutura de aplicações modernas.
 ## 📫 Contato
 
 - Email: leonardocaparroz05@gmail.com  
-- LinkedIn: (coloque seu link)  
-- GitHub: (coloque seu link)
-
 ---
 
 ## ⚡ Objetivo
