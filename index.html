@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfólio — Leonardo Caparroz</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Leonardo Caparroz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .lang-btn.active {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .lang-switcher {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,81 +55,96 @@
 
 <nav>
   <div class="nav-logo">&lt;Leonardo Caparroz /&gt;</div>
+
   <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
-    <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="#sobre" data-i18n="navAbout">Sobre</a></li>
+    <li><a href="#habilidades" data-i18n="navSkills">Habilidades</a></li>
+    <li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
+    <li><a href="#contato" data-i18n="navContact">Contato</a></li>
   </ul>
+
+  <div class="lang-switcher">
+  <button class="lang-btn active" data-lang="pt" aria-label="Português">
+    <img src="https://flagcdn.com/w40/br.png" alt="Brasil" />
+  </button>
+
+  <button class="lang-btn" data-lang="en" aria-label="English">
+    <img src="https://flagcdn.com/w40/us.png" alt="United States" />
+  </button>
+
+  <button class="lang-btn" data-lang="es" aria-label="Español">
+    <img src="https://flagcdn.com/w40/es.png" alt="España" />
+  </button>
+</div>
 </nav>
 
 <section class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    Em busca da primeira oportunidade como dev
+    <span data-i18n="heroBadge">Em busca da primeira oportunidade como dev</span>
   </div>
 
   <h1>
-    Desenvolvedor
-    <span class="grad-text">Backend / Full-Stack Jr</span>
+    <span data-i18n="heroTitle">Desenvolvedor</span>
+    <span class="grad-text" data-i18n="heroTitleHighlight">Backend / Full-Stack Jr</span>
   </h1>
 
-  <p class="hero-sub">
+  <p class="hero-sub" data-i18n="heroSub">
     Estudante e desenvolvedor focado em <strong>.NET, C#, React e PostgreSQL</strong>,
     construindo aplicações web com atenção à estrutura, organização do código
     e evolução constante.
   </p>
 
   <div class="hero-ctas">
-    <a href="#projetos" class="btn-grad">Ver projetos</a>
-    <a href="#contato" class="btn-ghost">Falar comigo</a>
+    <a href="#projetos" class="btn-grad" data-i18n="heroBtnProjects">Ver projetos</a>
+    <a href="#contato" class="btn-ghost" data-i18n="heroBtnContact">Falar comigo</a>
   </div>
 
   <div class="stats-row">
     <div class="stat-box">
       <div class="stat-n">3+</div>
-      <div class="stat-l">Projetos principais</div>
+      <div class="stat-l" data-i18n="statProjects">Projetos principais</div>
     </div>
     <div class="stat-box">
       <div class="stat-n">.NET</div>
-      <div class="stat-l">Foco no back-end</div>
+      <div class="stat-l" data-i18n="statBackend">Foco no back-end</div>
     </div>
     <div class="stat-box">
       <div class="stat-n">React</div>
-      <div class="stat-l">Front-end moderno</div>
+      <div class="stat-l" data-i18n="statFrontend">Front-end moderno</div>
     </div>
     <div class="stat-box">
       <div class="stat-n">100%</div>
-      <div class="stat-l">Vontade de evoluir</div>
+      <div class="stat-l" data-i18n="statGrowth">Vontade de evoluir</div>
     </div>
   </div>
 </section>
 
 <section class="section" id="sobre">
-  <div class="s-label">Sobre mim</div>
-  <h2 class="s-title">Quem está<br />por trás do código</h2>
+  <div class="s-label" data-i18n="aboutLabel">Sobre mim</div>
+  <h2 class="s-title" data-i18n="aboutTitle">Quem está<br />por trás do código</h2>
 
   <div class="about-wrap">
     <div class="about-body">
-      <p>
+      <p data-i18n="aboutP1">
         Sou <strong>Leonardo Caparroz</strong>, desenvolvedor com foco em
         <strong>back-end e full stack</strong>, estudando e criando projetos
         práticos para evoluir cada vez mais na área.
       </p>
 
-      <p>
+      <p data-i18n="aboutP2">
         Tenho maior interesse em tecnologias como <strong>C#, .NET, React, APIs REST e PostgreSQL</strong>,
         buscando sempre escrever código organizado, entender a lógica por trás das implementações
         e construir aplicações que façam sentido no mundo real.
       </p>
 
-      <p>
+      <p data-i18n="aboutP3">
         Gosto de aprender na prática, transformando ideias em projetos completos,
         trabalhando tanto na parte visual quanto na estrutura do sistema,
         autenticação, banco de dados e regras de negócio.
       </p>
 
-      <p>
+      <p data-i18n="aboutP4">
         Baseado em <strong>Santo André, SP</strong>, estou em busca da minha
         <strong>primeira oportunidade como desenvolvedor júnior</strong>.
       </p>
@@ -98,29 +153,29 @@
     <div class="about-cards">
       <div class="acard">
         <div class="acard-n">C# / .NET</div>
-        <div class="acard-l">Principal foco de estudos</div>
+        <div class="acard-l" data-i18n="aboutCard1">Principal foco de estudos</div>
       </div>
       <div class="acard">
         <div class="acard-n">React</div>
-        <div class="acard-l">Construção de interfaces</div>
+        <div class="acard-l" data-i18n="aboutCard2">Construção de interfaces</div>
       </div>
       <div class="acard">
         <div class="acard-n">PostgreSQL</div>
-        <div class="acard-l">Modelagem e persistência</div>
+        <div class="acard-l" data-i18n="aboutCard3">Modelagem e persistência</div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="habilidades">
-  <div class="s-label">Habilidades</div>
-  <h2 class="s-title">Tecnologias<br />que venho desenvolvendo</h2>
+  <div class="s-label" data-i18n="skillsLabel">Habilidades</div>
+  <h2 class="s-title" data-i18n="skillsTitle">Tecnologias<br />que venho desenvolvendo</h2>
 
   <div class="skills-wrap">
     <div class="sk-card">
       <div class="sk-head">
         <div class="sk-icon">🖥️</div>
-        <div class="sk-name">Front-end</div>
+        <div class="sk-name" data-i18n="frontendTitle">Front-end</div>
       </div>
       <div class="sk-items">
         <span class="sk-pill">React</span>
@@ -135,7 +190,7 @@
     <div class="sk-card">
       <div class="sk-head">
         <div class="sk-icon">⚙️</div>
-        <div class="sk-name">Back-end</div>
+        <div class="sk-name" data-i18n="backendTitle">Back-end</div>
       </div>
       <div class="sk-items">
         <span class="sk-pill">C#</span>
@@ -150,7 +205,7 @@
     <div class="sk-card">
       <div class="sk-head">
         <div class="sk-icon">🗄️</div>
-        <div class="sk-name">Banco de dados</div>
+        <div class="sk-name" data-i18n="databaseTitle">Banco de dados</div>
       </div>
       <div class="sk-items">
         <span class="sk-pill">PostgreSQL</span>
@@ -164,7 +219,7 @@
     <div class="sk-card">
       <div class="sk-head">
         <div class="sk-icon">🛠️</div>
-        <div class="sk-name">Ferramentas</div>
+        <div class="sk-name" data-i18n="toolsTitle">Ferramentas</div>
       </div>
       <div class="sk-items">
         <span class="sk-pill">Git</span>
@@ -179,8 +234,8 @@
 </section>
 
 <section class="section" id="projetos">
-  <div class="s-label">Projetos</div>
-  <h2 class="s-title">Projetos<br />em destaque</h2>
+  <div class="s-label" data-i18n="projectsLabel">Projetos</div>
+  <h2 class="s-title" data-i18n="projectsTitle">Projetos<br />em destaque</h2>
 
   <div class="proj-grid">
     <article class="pcard">
@@ -193,71 +248,40 @@
           <span class="pcard-tag">JWT</span>
         </div>
         <div class="pcard-title">FinanceFlow</div>
-        <p class="pcard-desc">
+        <p class="pcard-desc" data-i18n="project1Desc">
           Aplicação web de controle financeiro pessoal com autenticação,
           cadastro de gastos, metas, investimentos e dashboard com gráficos.
           Projeto criado para praticar estrutura full stack, API REST,
           organização de código e integração entre front-end e back-end.
         </p>
-        <a href="https://finance-flow-beryl-eight.vercel.app" class="pcard-link">https://finance-flow-beryl-eight.vercel.app</a>
+        <a href="https://finance-flow-beryl-eight.vercel.app" class="pcard-link" target="_blank">
+          https://finance-flow-beryl-eight.vercel.app
+        </a>
       </div>
     </article>
-
-    <!---<article class="pcard">
-      <div class="pcard-top">📦<div class="pcard-top-grad"></div></div>
-      <div class="pcard-body">
-        <div class="pcard-tags">
-          <span class="pcard-tag">C#</span>
-          <span class="pcard-tag">.NET</span>
-          <span class="pcard-tag">PostgreSQL</span>
-        </div>
-        <div class="pcard-title">Sistema de Controle de Estoque</div>
-        <p class="pcard-desc">
-          Projeto voltado para gerenciamento de produtos, categorias e estoque,
-          com foco em regras de negócio, organização da arquitetura e operações
-          comuns de um sistema administrativo.
-        </p>
-        <a href="#" class="pcard-link">Adicionar link do projeto →</a>
-      </div>
-    </article>
-__--->
-    <!---<article class="pcard">
-      <div class="pcard-top">🔐<div class="pcard-top-grad"></div></div>
-      <div class="pcard-body">
-        <div class="pcard-tags">
-          <span class="pcard-tag">React</span>
-          <span class="pcard-tag">.NET</span>
-          <span class="pcard-tag">Docker</span>
-        </div>
-        <div class="pcard-title">Projeto com autenticação e ambiente containerizado</div>
-        <p class="pcard-desc">
-          Projeto desenvolvido para aprofundar conhecimentos em autenticação,
-          integração entre serviços e ambiente de desenvolvimento com Docker,
-          reforçando conceitos importantes de aplicações modernas.
-        </p>
-        <a href="#" class="pcard-link">Adicionar link do projeto →</a>
-      </div>
-    </article>
-__--->
   </div>
 </section>
 
 <section class="section" id="contato">
   <div class="contact-wrap">
-    <div class="contact-title">
+    <div class="contact-title" data-i18n="contactTitle">
       Vamos criar<br /><span class="grad-text">algo incrível?</span>
     </div>
 
-    <p class="contact-sub">
+    <p class="contact-sub" data-i18n="contactSub">
       Estou aberto a oportunidades como desenvolvedor júnior, freelas pontuais
       e conexões com pessoas da área de tecnologia.
     </p>
 
-    <a href="https://mail.google.com/mail/?view=cm&to=leonardocaparroz05@gmail.com&su=Contato pelo portfólio&body=Olá Leonardo, vi seu portfólio e gostaria de falar com você." 
-    target="_blank" 
-    class="contact-email">
-  Fale comigo por email
-</a>
+    <a
+      id="emailLink"
+      href="https://mail.google.com/mail/?view=cm&to=leonardocaparroz05@gmail.com&su=Contato pelo portfólio&body=Olá Leonardo, vi seu portfólio e gostaria de falar com você."
+      target="_blank"
+      class="contact-email"
+      data-i18n="contactEmail"
+    >
+      Fale comigo por email
+    </a>
 
     <div class="contact-socials">
       <a href="https://github.com/derretido" class="social-link" aria-label="GitHub">GitHub →</a>
@@ -267,9 +291,201 @@ __--->
 </section>
 
 <footer>
-  <span>© 2026 Leonardo Caparroz. Feito com dedicação e muito estudo.</span>
-  <span>Desenvolvedor Backend / Full Stack Jr · Santo André, SP</span>
+  <span data-i18n="footer1">© 2026 Leonardo Caparroz. Feito com dedicação e muito estudo.</span>
+  <span data-i18n="footer2">Desenvolvedor Backend / Full Stack Jr · Santo André, SP</span>
 </footer>
+
+<script>
+  const translations = {
+    pt: {
+      navAbout: "Sobre",
+      navSkills: "Habilidades",
+      navProjects: "Projetos",
+      navContact: "Contato",
+
+      heroBadge: "Em busca da primeira oportunidade como dev",
+      heroTitle: "Desenvolvedor",
+      heroTitleHighlight: "Backend / Full-Stack Jr",
+      heroSub: 'Estudante e desenvolvedor focado em <strong>.NET, C#, React e PostgreSQL</strong>, construindo aplicações web com atenção à estrutura, organização do código e evolução constante.',
+      heroBtnProjects: "Ver projetos",
+      heroBtnContact: "Falar comigo",
+
+      statProjects: "Projetos principais",
+      statBackend: "Foco no back-end",
+      statFrontend: "Front-end moderno",
+      statGrowth: "Vontade de evoluir",
+
+      aboutLabel: "Sobre mim",
+      aboutTitle: "Quem está<br />por trás do código",
+      aboutP1: 'Sou <strong>Leonardo Caparroz</strong>, desenvolvedor com foco em <strong>back-end e full stack</strong>, estudando e criando projetos práticos para evoluir cada vez mais na área.',
+      aboutP2: 'Tenho maior interesse em tecnologias como <strong>C#, .NET, React, APIs REST e PostgreSQL</strong>, buscando sempre escrever código organizado, entender a lógica por trás das implementações e construir aplicações que façam sentido no mundo real.',
+      aboutP3: 'Gosto de aprender na prática, transformando ideias em projetos completos, trabalhando tanto na parte visual quanto na estrutura do sistema, autenticação, banco de dados e regras de negócio.',
+      aboutP4: 'Baseado em <strong>Santo André, SP</strong>, estou em busca da minha <strong>primeira oportunidade como desenvolvedor júnior</strong>.',
+      aboutCard1: "Principal foco de estudos",
+      aboutCard2: "Construção de interfaces",
+      aboutCard3: "Modelagem e persistência",
+
+      skillsLabel: "Habilidades",
+      skillsTitle: "Tecnologias<br />que venho desenvolvendo",
+      frontendTitle: "Front-end",
+      backendTitle: "Back-end",
+      databaseTitle: "Banco de dados",
+      toolsTitle: "Ferramentas",
+
+      projectsLabel: "Projetos",
+      projectsTitle: "Projetos<br />em destaque",
+      project1Desc: "Aplicação web de controle financeiro pessoal com autenticação, cadastro de gastos, metas, investimentos e dashboard com gráficos. Projeto criado para praticar estrutura full stack, API REST, organização de código e integração entre front-end e back-end.",
+
+      contactTitle: 'Vamos criar<br /><span class="grad-text">algo incrível?</span>',
+      contactSub: "Estou aberto a oportunidades como desenvolvedor júnior, freelas pontuais e conexões com pessoas da área de tecnologia.",
+      contactEmail: "Fale comigo por email",
+
+      footer1: "© 2026 Leonardo Caparroz. Feito com dedicação e muito estudo.",
+      footer2: "Desenvolvedor Backend / Full Stack Jr · Santo André, SP",
+
+      emailSubject: "Contato pelo portfólio",
+      emailBody: "Olá Leonardo, vi seu portfólio e gostaria de falar com você."
+    },
+
+    en: {
+      navAbout: "About",
+      navSkills: "Skills",
+      navProjects: "Projects",
+      navContact: "Contact",
+
+      heroBadge: "Looking for my first opportunity as a developer",
+      heroTitle: "Developer",
+      heroTitleHighlight: "Backend / Full-Stack Jr",
+      heroSub: 'Student and developer focused on <strong>.NET, C#, React and PostgreSQL</strong>, building web applications with attention to structure, code organization and continuous growth.',
+      heroBtnProjects: "View projects",
+      heroBtnContact: "Contact me",
+
+      statProjects: "Main projects",
+      statBackend: "Backend focus",
+      statFrontend: "Modern front-end",
+      statGrowth: "Willingness to grow",
+
+      aboutLabel: "About me",
+      aboutTitle: "Who is<br />behind the code",
+      aboutP1: 'I am <strong>Leonardo Caparroz</strong>, a developer focused on <strong>backend and full stack</strong>, studying and building practical projects to keep evolving in the field.',
+      aboutP2: 'I am especially interested in technologies such as <strong>C#, .NET, React, REST APIs and PostgreSQL</strong>, always aiming to write organized code, understand the logic behind implementations and build applications that make sense in the real world.',
+      aboutP3: 'I enjoy learning by doing, turning ideas into complete projects, working on both the visual side and the system structure, authentication, database and business rules.',
+      aboutP4: 'Based in <strong>Santo André, SP</strong>, I am looking for my <strong>first opportunity as a junior developer</strong>.',
+      aboutCard1: "Main study focus",
+      aboutCard2: "Interface development",
+      aboutCard3: "Modeling and persistence",
+
+      skillsLabel: "Skills",
+      skillsTitle: "Technologies<br />I have been developing",
+      frontendTitle: "Front-end",
+      backendTitle: "Back-end",
+      databaseTitle: "Database",
+      toolsTitle: "Tools",
+
+      projectsLabel: "Projects",
+      projectsTitle: "Featured<br />projects",
+      project1Desc: "Personal finance web application with authentication, expense tracking, goals, investments and a dashboard with charts. Project created to practice full stack structure, REST API, code organization and front-end/back-end integration.",
+
+      contactTitle: 'Let’s build<br /><span class="grad-text">something amazing?</span>',
+      contactSub: "I am open to junior developer opportunities, freelance work and connections with people in the tech industry.",
+      contactEmail: "Contact me by email",
+
+      footer1: "© 2026 Leonardo Caparroz. Built with dedication and a lot of learning.",
+      footer2: "Backend / Full Stack Jr Developer · Santo André, SP",
+
+      emailSubject: "Contact through portfolio",
+      emailBody: "Hello Leonardo, I saw your portfolio and would like to talk to you."
+    },
+
+    es: {
+      navAbout: "Sobre mí",
+      navSkills: "Habilidades",
+      navProjects: "Proyectos",
+      navContact: "Contacto",
+
+      heroBadge: "Buscando mi primera oportunidad como desarrollador",
+      heroTitle: "Desarrollador",
+      heroTitleHighlight: "Backend / Full-Stack Jr",
+      heroSub: 'Estudiante y desarrollador enfocado en <strong>.NET, C#, React y PostgreSQL</strong>, creando aplicaciones web con atención a la estructura, organización del código y evolución constante.',
+      heroBtnProjects: "Ver proyectos",
+      heroBtnContact: "Hablar conmigo",
+
+      statProjects: "Proyectos principales",
+      statBackend: "Enfoque en backend",
+      statFrontend: "Front-end moderno",
+      statGrowth: "Deseo de crecer",
+
+      aboutLabel: "Sobre mí",
+      aboutTitle: "Quién está<br />detrás del código",
+      aboutP1: 'Soy <strong>Leonardo Caparroz</strong>, desarrollador enfocado en <strong>backend y full stack</strong>, estudiando y creando proyectos prácticos para seguir evolucionando en el área.',
+      aboutP2: 'Tengo mayor interés en tecnologías como <strong>C#, .NET, React, APIs REST y PostgreSQL</strong>, buscando siempre escribir código organizado, entender la lógica detrás de las implementaciones y construir aplicaciones que tengan sentido en el mundo real.',
+      aboutP3: 'Me gusta aprender en la práctica, transformando ideas en proyectos completos, trabajando tanto en la parte visual como en la estructura del sistema, autenticación, base de datos y reglas de negocio.',
+      aboutP4: 'Ubicado en <strong>Santo André, SP</strong>, estoy buscando mi <strong>primera oportunidad como desarrollador junior</strong>.',
+      aboutCard1: "Principal enfoque de estudio",
+      aboutCard2: "Construcción de interfaces",
+      aboutCard3: "Modelado y persistencia",
+
+      skillsLabel: "Habilidades",
+      skillsTitle: "Tecnologías<br />que vengo desarrollando",
+      frontendTitle: "Front-end",
+      backendTitle: "Back-end",
+      databaseTitle: "Base de datos",
+      toolsTitle: "Herramientas",
+
+      projectsLabel: "Proyectos",
+      projectsTitle: "Proyectos<br />destacados",
+      project1Desc: "Aplicación web de control financiero personal con autenticación, registro de gastos, metas, inversiones y dashboard con gráficos. Proyecto creado para practicar estructura full stack, API REST, organización del código e integración entre front-end y back-end.",
+
+      contactTitle: '¿Creamos<br /><span class="grad-text">algo increíble?</span>',
+      contactSub: "Estoy abierto a oportunidades como desarrollador junior, trabajos freelance y conexiones con personas del área de tecnología.",
+      contactEmail: "Habla conmigo por email",
+
+      footer1: "© 2026 Leonardo Caparroz. Hecho con dedicación y mucho estudio.",
+      footer2: "Desarrollador Backend / Full Stack Jr · Santo André, SP",
+
+      emailSubject: "Contacto por el portafolio",
+      emailBody: "Hola Leonardo, vi tu portafolio y me gustaría hablar contigo."
+    }
+  };
+
+  const elements = document.querySelectorAll("[data-i18n]");
+  const langButtons = document.querySelectorAll(".lang-btn");
+  const emailLink = document.getElementById("emailLink");
+
+  function setLanguage(lang) {
+    const dict = translations[lang];
+
+    elements.forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      if (dict[key]) {
+        element.innerHTML = dict[key];
+      }
+    });
+
+    document.documentElement.lang =
+      lang === "pt" ? "pt-BR" : lang === "en" ? "en" : "es";
+
+    const subject = encodeURIComponent(dict.emailSubject);
+    const body = encodeURIComponent(dict.emailBody);
+
+    emailLink.href = `https://mail.google.com/mail/?view=cm&to=leonardocaparroz05@gmail.com&su=${subject}&body=${body}`;
+
+    langButtons.forEach((btn) => btn.classList.remove("active"));
+    document.querySelector(`[data-lang="${lang}"]`).classList.add("active");
+
+    localStorage.setItem("portfolioLang", lang);
+  }
+
+  langButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const lang = button.getAttribute("data-lang");
+      setLanguage(lang);
+    });
+  });
+
+  const savedLang = localStorage.getItem("portfolioLang") || "pt";
+  setLanguage(savedLang);
+</script>
 
 </body>
 </html>
