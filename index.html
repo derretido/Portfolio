@@ -289,7 +289,13 @@
     </div>
   </div>
 </section>
+<section class="section" id="feedbacks">
 
+    <div class="s-label">Feedbacks</div>
+    <h2 class="s-title">O que estão dizendo</h2>
+
+    <div id="feedbackList" class="feedback-list"></div>
+</section>
 <footer>
   <span data-i18n="footer1">© 2026 Leonardo Caparroz. Feito com dedicação e muito estudo.</span>
   <span data-i18n="footer2">Desenvolvedor Backend / Full Stack Jr · Santo André, SP</span>
@@ -487,5 +493,96 @@
   setLanguage(savedLang);
 </script>
 
+<button id="feedbackBtn" class="feedback-btn">💬 Feedback</button>
+
+<div id="feedbackModal" class="feedback-modal">
+  <div class="feedback-content">
+    <span class="close-feedback">&times;</span>
+    <h2>Deixe seu feedback</h2>
+
+    <form id="feedbackForm">
+      <input type="text" id="name" placeholder="Seu nome" required />
+      <textarea id="message" placeholder="Seu feedback..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p id="feedbackSuccess" class="hidden">✅ Feedback enviado com sucesso!</p>
+  </div>
+</div>
+
+<script>
+  // =========================
+  // FEEDBACK (NOVO)
+  // =========================
+
+  const feedbackBtn = document.getElementById("feedbackBtn");
+  const feedbackModal = document.getElementById("feedbackModal");
+  const closeFeedback = document.querySelector(".close-feedback");
+  const feedbackForm = document.getElementById("feedbackForm");
+  const feedbackSuccess = document.getElementById("feedbackSuccess");
+
+  feedbackBtn.onclick = () => {
+    feedbackModal.style.display = "flex";
+  };
+
+  closeFeedback.onclick = () => {
+    feedbackModal.style.display = "none";
+  };
+
+  window.addEventListener("click", (e) => {
+    if (e.target === feedbackModal) {
+      feedbackModal.style.display = "none";
+    }
+  });
+
+  feedbackForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+    feedbacks.push({
+      name,
+      message,
+      date: new Date()
+    });
+
+    localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+    renderFeedbacks();
+
+    feedbackSuccess.classList.remove("hidden");
+    feedbackForm.reset();
+
+    setTimeout(() => {
+      feedbackModal.style.display = "none";
+      feedbackSuccess.classList.add("hidden");
+    }, 2000);
+  });
+
+
+  const feedbackList = document.getElementById("feedbackList");
+
+function renderFeedbacks() {
+  const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+  feedbackList.innerHTML = "";
+
+  feedbacks.slice().reverse().forEach((fb) => {
+    const div = document.createElement("div");
+    div.classList.add("feedback-item");
+
+    div.innerHTML = `
+      <strong>${fb.name}</strong>
+      <p>${fb.message}</p>
+    `;
+
+    feedbackList.appendChild(div);
+  });
+}
+renderFeedbacks();
+</script>
 </body>
 </html>
