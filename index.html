@@ -455,7 +455,7 @@
       emailSubject: "Contacto por el portafolio",
       emailBody: "Hola Leonardo, vi tu portafolio y me gustaría hablar contigo.",
 
-      feedbackTitle: "Lo que están diciendo",
+      feedback: "Lo que están diciendo",
       feedbackBtn: "Deja tu feedback"
     }
   };
@@ -527,13 +527,6 @@
   const feedbackForm = document.getElementById("feedbackForm");
   const feedbackSuccess = document.getElementById("feedbackSuccess");
 
-  feedbackBtn.onclick = () => {
-    feedbackModal.style.display = "flex";
-  };
-
-  closeFeedback.onclick = () => {
-    feedbackModal.style.display = "none";
-  };
 
   window.addEventListener("click", (e) => {
     if (e.target === feedbackModal) {
